@@ -3,17 +3,18 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/router';
 import styles from '@/styles/Create.module.css';
 import { useAccount } from 'wagmi';
+import { uploadFile, uploadImage } from '@/lib/uploadFiles';
 
 interface FormData {
   name: string;
   link: string;
   image: File | null;
   pdf: File | null;
-  address:  string;
+  address: string;
 }
 
 export default function Creator() {
-  const { address } = useAccount()
+  const { address } = useAccount();
   
   const [form, setForm] = useState<FormData>({
     name: '',
@@ -35,20 +36,31 @@ export default function Creator() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    const formData = new FormData();
-    console.log(form);
-    
-    formData.append('name', form.name);
-    formData.append('link', form.link);
-    formData.append('address', form.address);
-    formData.append('image', form.image as Blob);
-    formData.append('pdf', form.pdf as Blob);
+    let imageUrl = '';
+    let pdfUrl = '';
 
-    console.log(formData);
-    
+    if (form.image) {
+      imageUrl = await uploadFile(form.image);
+    }
+
+    if (form.pdf) {
+      pdfUrl = await uploadFile(form.pdf);
+    }
+
+    const payload = {
+      name: form.name,
+      link: form.link,
+      address: address,
+      image: imageUrl,
+      pdf: pdfUrl
+    };
+
     const res = await fetch('/api/playlist', {
       method: 'POST',
-      body: formData,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
     });
 
     if (res.ok) {
@@ -75,11 +87,11 @@ export default function Creator() {
           </div>
           <div className={styles.inputGroup}>
             <label htmlFor="image">Upload an image (NFT)</label>
-            <input type="file" id="image" name="image" onChange={handleChange} accept="image/*"  />
+            <input type="file" id="image" name="image" onChange={handleChange} accept="image/*" />
           </div>
           <div className={styles.inputGroup}>
             <label htmlFor="pdf">Upload submission requirements (PDF)</label>
-            <input type="file" id="pdf" name="pdf" onChange={handleChange} accept="application/pdf"  />
+            <input type="file" id="pdf" name="pdf" onChange={handleChange} accept="application/pdf" />
           </div>
         </div>
         <button type="submit" className={styles.submitButton}>Submit</button>
