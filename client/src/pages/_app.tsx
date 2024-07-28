@@ -14,7 +14,7 @@ import {
 	optimism,
 	polygon,
 } from "wagmi/chains";
-import Layout from "../../components/applayout/Layout";
+import Layout from "../components/layout/Layout";
 
 const chains = [
 	mainnet,

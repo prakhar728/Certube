@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import Header from "../Header/Header";
+import SideBar from "../SideBar/SideBar";
 
 interface LayoutProps {
   children: ReactNode;
@@ -11,7 +12,12 @@ const Layout = (props: LayoutProps) => {
   return (
     <div className='layout'>
       <Header/> 
-       {props.children}
+      
+      <div className='main'>
+        <SideBar />
+        {props.children}
+      </div>
+      
       <style jsx>{`
       .layout {
           height: 100vh;
@@ -22,6 +28,10 @@ const Layout = (props: LayoutProps) => {
           background-position: center;
           background-repeat: no-repeat;
           background-size: cover;
+      }
+
+      .main {
+      display: flex;
       }
       `}
       </style>
