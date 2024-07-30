@@ -1,9 +1,8 @@
 // pages/import-playlist.tsx
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { useRouter } from 'next/router';
 import styles from '@/styles/Create.module.css';
 import { useAccount } from 'wagmi';
-import { uploadFile, uploadImage } from '@/lib/uploadFiles';
+import { uploadFile } from '@/lib/uploadFiles';
 
 interface FormData {
   name: string;

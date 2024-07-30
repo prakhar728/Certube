@@ -12,7 +12,6 @@ export async function uploadImage(image: File): Promise<string> {
   const space = await client.createSpace('certube');
   await space.save();
   await client.setCurrentSpace(space.did());
-console.log(typeof(image));
 
   const cid = await client.uploadFile(new File([image], 'certificate.png'));
   return `https://${cid}.ipfs.w3s.link/${image.name}`;
