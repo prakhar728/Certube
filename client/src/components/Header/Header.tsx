@@ -1,29 +1,15 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from "@/styles/Home.module.css";
+import LoginButton from '../LoginButton/LoginButton';
+import { useOCAuth } from '@opencampus/ocid-connect-js';
+import AddressButton from '../AddressButton/AddressButton';
 
 const Header: React.FC = () => {
-
-  const [isNetworkSwitchHighlighted, setIsNetworkSwitchHighlighted] =
-		useState(false);
-	const [isConnectHighlighted, setIsConnectHighlighted] = useState(false);
-
-	const closeAll = () => {
-		setIsNetworkSwitchHighlighted(false);
-		setIsConnectHighlighted(false);
-	};
+	const { authState } = useOCAuth();
 
   return (
     <header>
-				<div
-					className={styles.backdrop}
-					style={{
-						opacity:
-							isConnectHighlighted || isNetworkSwitchHighlighted
-								? 1
-								: 0,
-					}}
-				/>
 				<div className={styles.header}>
 					<div className={styles.logo}>
 						<Image
@@ -34,26 +20,16 @@ const Header: React.FC = () => {
 						/>
 					</div>
 					<div className={styles.buttons}>
-						<div
-							onClick={closeAll}
-							className={`${styles.highlight} ${
-								isNetworkSwitchHighlighted
-									? styles.highlightSelected
-									: ``
-							}`}
-						>
-							<w3m-network-button />
+						{authState.isAuthenticated ?
+						<div>
+							<AddressButton />
 						</div>
-						<div
-							onClick={closeAll}
-							className={`${styles.highlight} ${
-								isConnectHighlighted
-									? styles.highlightSelected
-									: ``
-							}`}
-						>
-							<w3m-button />
+						:
+						<div>
+							<LoginButton />
 						</div>
+						}
+						
 					</div>
 				</div>
 			</header>

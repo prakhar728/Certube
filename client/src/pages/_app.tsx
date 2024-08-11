@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import { createWeb3Modal, defaultWagmiConfig } from "@web3modal/wagmi/react";
 
-import { WagmiConfig } from "wagmi";
+
 import type { AppProps } from "next/app";
 import { useEffect, useState } from "react";
 import {
@@ -15,6 +15,7 @@ import {
 	polygon,
 } from "wagmi/chains";
 import Layout from "../components/layout/Layout";
+import OCIDProvider from "@/components/Services/OCIDConnect";
 
 const chains = [
 	mainnet,
@@ -59,11 +60,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 		return (
 			<>
 				{ready ? (
-					<WagmiConfig config={wagmiConfig}>
+					<OCIDProvider>
 						<Layout>
 							<Component {...pageProps} />
 						</Layout>
-					</WagmiConfig>
+					</OCIDProvider>
 				) : null}
 			</>
 		);
@@ -71,9 +72,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 	return (
 		<>
 			{ready ? (
-				<WagmiConfig config={wagmiConfig}>
-					<Component {...pageProps} />
-				</WagmiConfig>
+					<OCIDProvider>
+						<Component {...pageProps} />
+					</OCIDProvider>
 			) : null}
 		</>
 	);
