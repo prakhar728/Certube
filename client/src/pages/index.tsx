@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 
 const Index = () => {
 
@@ -9,10 +8,10 @@ const Index = () => {
         <header id='home'>
           <div className="logo"><img  src={'./Logo.png'}/></div>
           <ul className="flex gap-8 justify-center items-center px-6">
-            <Link href="#home">Home</Link>  
-            <Link href="#why-us">Why us?</Link>  
-            <Link href="#features">Features</Link>  
-            <Link href="https://github.com/prakhar728/NodeZilla">About</Link>  
+            <a href="#home">Home</a>  
+            <a href="#why-us">Why us?</a>  
+            <a href="#features">Features</a>  
+            <a href="https://github.com/prakhar728/NodeZilla">About</a>  
           </ul>
         </header>
         <section>
@@ -20,8 +19,8 @@ const Index = () => {
             <h1>Certify Your Learning Journey.</h1>
             <p>Transform your video binging into a journey of learning and achievement with Certube. Showcase your newfound knowledge on your resume and stand out from the crowd!</p>
             <div className="btn-container">
-              <button className="btn-primary"><Link href="/app">Go to app</Link></button>
-              <button className="btn-secondary"><Link href="https://nodezilla.onrender.com/docs">Explore API</Link></button>
+              <button className="btn-primary"><a href="/app">Go to app</a></button>
+              <button className="btn-secondary"><a href="https://nodezilla.onrender.com/docs">Explore API</a></button>
             </div>
           </div>
         </section>
@@ -57,16 +56,16 @@ const Index = () => {
       <article className="features" id="features">
         <div className="feature-wrapper">
           <div className="feature-info">
-            <h2>1. Real Time Monitoring</h2>
-            <p>We update the metrics for <b>active</b> node operators every 30 seconds. In-case of any change you&apos;ll be the first one to get updated. You can subscribe and see the changes real time.</p>
+            <h2>1. Certified Playlists</h2>
+            <p>Transform YouTube playlists into accredited courses that grant blockchain-based certificates, enabling creators to provide recognized educational value to their viewers.</p>
           </div>
-          <div className="feature-img"><img src={'./Real-time-feature.svg'} /></div>
+          <div className="feature-img"><img src={'./Landing_certificate.svg'} /></div>
         </div>
 
         <div className="feature-wrapper">
           <div className="feature-info">
-            <h2>2. Historical Data</h2>
-            <p>We&apos;ve been keeping the metrics up-to date in our database so you don&apos;'t have to go through the pain of fetching and storing them. Visualized using charts and more!</p>
+            <h2>2. Interactive Learning</h2>
+            <p>Leverage advanced interactive tools and community-driven discussions to enhance the learning experience, ensuring that engagement and retention are maximized across diverse subject matter.</p>
             {/* <ul>
               <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
               <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
@@ -74,21 +73,21 @@ const Index = () => {
               <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
             </ul> */}
           </div>
-          <div className="feature-img"><img src={'./Historic-feature.svg'} /></div>
+          <div className="feature-img"><img src={'./Landing_learning.svg'} /></div>
         </div>
 
         <div className="feature-wrapper">
           <div className="feature-info">
-            <h2>3. Well Documented API</h2>
-            <p>You&apos;re a builder? We got you covered. Visit our API, and make your own APP using the data we collected. Ask us for credits we&apos;re more than happy to provide!</p>
+            <h2>3. Dynamic Marketplace</h2>
+            <p>Access a robust platform for trading educational content, where every transaction is secured and enhanced through blockchain technology, contributing to a vibrant ecosystem of educational exchange.</p>
             
           </div>
-          <div className="feature-img"><img src={'./Documented-feature.svg'} /></div>
+          <div className="feature-img"><img src={'./Landing_marketplace.svg'} /></div>
         </div>
       </article>
 
       <footer>
-        <div className="logo"><img  src={'./Name-n.png'}/></div>
+        <div className="logo"><img  src={'./Logo.png'}/></div>
         <ul className="flex gap-8 justify-center items-center px-6">
           <a href="https://www.google.com">Solutions</a>  
           <a href="https://www.google.com">Developers</a>  
@@ -122,7 +121,8 @@ const Index = () => {
         }
 
         ul { 
-          list-style: none; 
+          list-style: none;
+          color: white;
         }
 
         img { 
@@ -134,7 +134,7 @@ const Index = () => {
         }
 
         a {
-          color: inherit;
+          color: azure;
           text-decoration: none;
         }
 
@@ -323,6 +323,11 @@ const Index = () => {
           background-size: cover;
         }
 
+        .feature-img img {
+          height: 100%;
+          width:100%;
+        }
+
 
         footer {
           display: flex;
@@ -333,7 +338,7 @@ const Index = () => {
         }
         footer .logo {
           height: 48px;
-          width: 130px;
+          width: 48px;
           border-radius: 8px;
         }
         footer ul {
