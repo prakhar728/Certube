@@ -1,13 +1,14 @@
 // components/Sidebar.tsx
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { CiVideoOn } from "react-icons/ci";
-import { FaFileImport } from "react-icons/fa6";
-import { MdDashboard } from "react-icons/md";
-import { IoBookSharp } from "react-icons/io5";
-import { RiGalleryFill } from "react-icons/ri";
+import { CiVideoOn } from 'react-icons/ci';
+import { FaFileImport } from 'react-icons/fa6';
+import { MdDashboard } from 'react-icons/md';
+import { IoBookSharp } from 'react-icons/io5';
+import { RiGalleryFill } from 'react-icons/ri';
 
 import styles from '@/styles/Sidebar.module.css';
+import { useSidebarContext } from '@/context/SidebarContext';
 
 interface SubMenuItem {
   icon: JSX.Element;
@@ -24,14 +25,6 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   {
-    icon: <CiVideoOn />,
-    label: 'Studio',
-    subItems: [
-      { icon: <FaFileImport />, label: 'Import', link: '/projects/project1' },
-      { icon: <MdDashboard />, label: 'Dashboard', link: '/projects/project2' },
-    ],
-  },
-  {
     icon: <IoBookSharp />,
     label: 'Learner',
     subItems: [
@@ -39,11 +32,18 @@ const menuItems: MenuItem[] = [
       { icon: <MdDashboard />, label: 'Dashboard', link: '/projects/project1' },
     ],
   },
-  // Add more items as needed
+  {
+    icon: <CiVideoOn />,
+    label: 'Studio',
+    subItems: [
+      { icon: <FaFileImport />, label: 'Import', link: '/projects/project1' },
+      { icon: <MdDashboard />, label: 'Dashboard', link: '/projects/project2' },
+    ],
+  },
 ];
 
 const Sidebar: React.FC = () => {
-  const [selected, setSelected] = useState<string>('');
+  const { selected, setSelected } = useSidebarContext();
 
   const handleClick = (label: string) => {
     setSelected(label);
@@ -65,8 +65,8 @@ const Sidebar: React.FC = () => {
               {item.subItems.map((subItem) => (
                 <Link href={subItem.link} key={subItem.label}>
                   <div
-                    className={`${styles.subMenuItem} ${selected === subItem.label ? styles.active : ''}`}
-                    onClick={() => handleClick(subItem.label)}
+                    className={`${styles.subMenuItem} ${selected === item.label + subItem.label ? styles.active : ''}`}
+                    onClick={() => handleClick(item.label + subItem.label)}
                   >
                     <div className={styles.icon}>{subItem.icon}</div>
                     <div className={styles.label}>{subItem.label}</div>
