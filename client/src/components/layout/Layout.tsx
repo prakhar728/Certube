@@ -33,7 +33,8 @@ const Layout = (props: LayoutProps) => {
         }
 
         .main {
-        display: flex;
+          display: flex;
+          height: 80%;
         }
         `}
         </style>

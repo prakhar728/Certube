@@ -1,143 +1,157 @@
 /* styles/Dashboard.module.css */
+.dashboard {
+  display: flex;
+  width: 100%;
+}
+
 .container {
     display: flex;
+    flex-direction: column;
     gap: 20px;
     padding: 20px;
     color: #fff;
     border: 2px solid red;
-    width: 100%;
-  }
-  
-  .overview {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border: 2px solid red;
-    background-color: #212121;
-    width: 50%;
-  }
-  
-  .cardContainer {
-    display: flex;
-  }
-
-  .card {
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    flex: 1;
-  }
-  
-  .card h3 {
-    margin-bottom: 10px;
-  }
-  
-  .card p {
-    font-size: 2rem;
-    margin: 0;
-  }
-  
-  .card span {
-    color: #4caf50;
-  }
-  
-  .chartContainer {
-    flex: 3;
-    padding: 20px;
-    border-radius: 10px;
-    width: 100%;
-  }
-  
-  .analytics {
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-  }
-  
-  .analytics h3 {
-    margin-bottom: 20px;
-  }
-  
-  .pieChart {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .pieContainer {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-  }
-  
-  .pieSegment {
-    position: absolute;
-    width: 100%;
     height: 100%;
-    border-radius: 50%;
-    clip-path: circle(50% at 50% 50%);
-  }
-  
-  .pieLabel {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.5rem;
-  }
-  
-  .pieLegend {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  
-  .pieLegend p {
-    margin: 0;
-    display: flex;
-    align-items: center;
-  }
-  
-  .pieLegend span {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin-right: 5px;
-  }
-  
-  .myContent {
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 10px;
     width: 50%;
-  }
-  
-  .myContent h3 {
-    margin-bottom: 20px;
-  }
-  
-  .playlist {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .playlistItem {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  
-  .playlistItem img {
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
-  }
-  
-  .playlistInfo p {
-    margin: 0;
-  }
-  
+}
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 2px solid red;
+  background-color: #212121;
+  width: 100%;
+  height: 50%;
+}
+
+.cardContainer {
+  display: flex;
+}
+
+.card {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  flex: 1;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.card span {
+  color: #4caf50;
+}
+
+.chartContainer {
+  flex: 3;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.analytics {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.analytics h3 {
+  margin-bottom: 20px;
+}
+
+.pieChart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.pieContainer {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.pieSegment {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  clip-path: circle(50% at 50% 50%);
+}
+
+.pieLabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+}
+
+.pieLegend {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pieLegend p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.pieLegend span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+.myContent {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  height: 50%;
+}
+
+.myContent h3 {
+  margin-bottom: 20px;
+}
+
+.playlist {
+  display: flex;
+  gap: 20px;
+}
+
+.playlistItem {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.playlistItem img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.playlistInfo p {
+  margin: 0;
+}
+
+.contentImport {
+  border: 2px solid blue;
+  width: 50%;
+}
